@@ -3,26 +3,24 @@ import csv
 from bs4 import BeautifulSoup as Soup
 
 
-def parse_xml(source):
-  
-  return None
+def parse_xml(url):  
+  resp = requests.get(str(url))
+  soup = Soup(resp.text, "xml")
+  tags = ([tag.name for tag in soup.find_all(True, text=True)])
+  data = {}
+  for tag in tags:
+    data[tag] = soup.find(tag, text=True).text
+  return data
 
+def write_tsv(data):
+  with open(data["cik"] + "_" + data["reportCalendarOrQuarter"] + "_13f.tsv", "wt") as report_file:
+    tsv_writer = csv.writer(report_file, delimiter="\t")
+    for each in data:
+      tsv_writer.writerow([each, data[each]])
 
-url = "https://www.sec.gov/Archives/edgar/data/1166559/000110465919029714/primary_doc.xml"
-resp = requests.get(url)
-soup = Soup(resp.text, "xml")
-
-tags = ([tag.name for tag in soup.find_all(True, text=True)])
-obj = {}
-
-for tag in tags:
-  obj[tag] = soup.find(tag, text=True).text
-
-print(obj)
-
-  
-with open('report.tsv', 'wt') as report_file:
-  tsv_writer = csv.writer(report_file, delimiter='\t')
-  
-  for each in obj:
-    tsv_writer.writerow([each, obj[each]])
+def xml_to_tsv(url):
+  if url is None:
+    print("Error, cannot find 13F report for this CIK. Please try again.")
+    return None
+  data = parse_xml(url)
+  write_tsv(data)
