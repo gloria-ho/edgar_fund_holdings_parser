@@ -2,7 +2,6 @@ import requests
 import csv
 from bs4 import BeautifulSoup as Soup
 
-
 def parse_xml(url):  
   resp = requests.get(str(url))
   soup = Soup(resp.text, "xml")
@@ -20,7 +19,7 @@ def write_tsv(data):
 
 def xml_to_tsv(url):
   if url is None:
-    print("Error, cannot find 13F report for this CIK. Please try again.")
+    print("\nError, cannot find 13F report for this CIK. Please try again.")
     return None
   data = parse_xml(url)
   write_tsv(data)

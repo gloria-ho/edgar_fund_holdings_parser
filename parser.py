@@ -22,16 +22,3 @@ if prompt == 'n':
   print("\nThank you for trying the EDGAR Fund Holdings Parser. I hope you found it useful.")
 else:
   print("\nSorry, I did not understand you. Thank you for trying the EDGAR Fund Holdings Parser. I hope you found it useful.")
-
-
-# # testing
-# g = Edgar("goog")
-# b = Edgar("0001166559")
-# # test ticker_to_cik function
-# print(g.ticker_to_cik()) #0001652044
-# # test cik_to_company function
-# print(g.cik_to_company()) # Alphabet Inc.
-# print(b.cik_to_company()) # Bill & Melinda Gates Foundation Trust
-# # test 13f
-# print(g.report()) # Error, cannot find 13F report for this CIK.
-# print(b.report()) #
