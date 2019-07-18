@@ -6,7 +6,7 @@ class Edgar:
   def __init__(self, input):
     self.input = input
     self.url = "https://www.sec.gov/"
-    self.query_url = self.url + "cgi-bin/browse-edgar?action=getcompany&CIK="    
+    self.query_url = self.url + "cgi-bin/browse-edgar?action=getcompany&CIK="
     self.query = self.query_url + input
 
   def fetch_query(self, query):
