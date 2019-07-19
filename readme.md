@@ -19,8 +19,8 @@ In the directory where you saved this code, run the following commands:
 
 Any reports you generate should save to the `/reports` directory within the directory where you ran this code.
 
-### Future Features
-#### Report Archive
+## Future Features
+### Report Archive
 This app currently gets only the latest 13F-HR filing. This is because the SEC's EDGAR website gives the results in chronilogical order by default. There are several ways we could pull older reports.
 
 We can use the SEC's EDGAR website's own **Prior to: (YYYYMMDD)** date filter by changing the query parameters in the `query_13f` method in `Edgar.py`. We can change the query to `"&type=13F-HR&dateb=" + YYYYMMDD + "&owner=include&count=40"` where the date is taken from the user's input. Using the current code, we can get the most current filing, where the date is prior to the input date.
