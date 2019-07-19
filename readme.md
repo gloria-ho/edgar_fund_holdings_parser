@@ -15,7 +15,7 @@ You will need Python v.3.7.4 to run this parser. Python packages are available a
 ## How to Run
 In the directory where you saved this code, run the following commands:
 * `pip3 intall -r requirements.txt` to install dependencies
-* `python3 parser.py` to run the code and follow the prompts
+* `python3 app.py` to run the code and follow the prompts
 
 Any reports you generate will save to the `reports/` directory within the directory where you ran this code.
 
