@@ -12,10 +12,12 @@ def parse_xml(url):
   return data
 
 def write_tsv(data):
-  with open(data["cik"] + "_" + data["reportCalendarOrQuarter"] + "_13f.tsv", "wt") as report_file:
+  file_name = data["cik"] + "_" + data["reportCalendarOrQuarter"] + "_13f.tsv"
+  with open(file_name, "wt") as report_file:
     tsv_writer = csv.writer(report_file, delimiter="\t")
     for each in data:
       tsv_writer.writerow([each, data[each]])
+  print("\nReport has been saved as " + file_name)
 
 def xml_to_tsv(url):
   if url is None:

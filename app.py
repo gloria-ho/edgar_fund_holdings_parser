@@ -1,5 +1,4 @@
 from Edgar import Edgar
-# from utilities import xml_to_tsv
 import utilities as util
 
 def end_parser():
@@ -8,7 +7,9 @@ def end_parser():
 
 def parser():
   stock = input("\nPlease enter a stock ticker or CIK.  ")
+  # query the ticker/CIK
   output = Edgar(str(stock))
+  # write the tsv file
   util.xml_to_tsv(output.fetch_13f_url())
   return end_parser()
 
