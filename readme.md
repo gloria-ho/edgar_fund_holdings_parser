@@ -1,16 +1,16 @@
 # Python EDGAR Fund Holdings Parser
 Given a ticker or CIK, parses fundings report pulled from SEC's EDGAR website and writes a `.tsv` file.
 
-### Requirements
+### Features
+* Accepts CIK or ticker and finds the most current 13F-HR report, if available
+* Writes the results to a `.tsv` file to the `reports/` directory
+
+## Requirements
 You will need Python v.3.7.4 to run this parser. Python packages are available at <https://www.python.org/>
 
 ### Dependencies
 * Beautiful Soup v4
 * Requests
-
-### Features
-* Accepts CIK or ticker and finds the most current 13F-HR report, if available
-* Writes the results to a `.tsv` file to the `reports/` directory
 
 ## How to Run
 In the directory where you saved this code, run the following commands:
