@@ -9,15 +9,15 @@ You will need Python v.3.7.4 to run this parser. Python packages are available a
 * Requests
 
 ### Features
-* Accepts CIK or ticker and finds the most current 13F-HR report
-* Writes the results to a `.tsv` file
+* Accepts CIK or ticker and finds the most current 13F-HR report, if available
+* Writes the results to a `.tsv` file to the `reports/` directory
 
 ## How to Run
 In the directory where you saved this code, run the following commands:
 * `pip3 intall -r requirements.txt` to install dependencies
 * `python3 parser.py` to run the code and follow the prompts
 
-Any reports you generate should save to the `/reports` directory within the directory where you ran this code.
+Any reports you generate will save to the `reports/` directory within the directory where you ran this code.
 
 ## Future Features
 ### Report Archive

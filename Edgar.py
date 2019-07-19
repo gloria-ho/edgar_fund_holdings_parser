@@ -14,25 +14,6 @@ class Edgar:
     soup = Soup(resp.text, "html.parser")
     return soup
 
-  def ticker_to_cik(self):
-  # convert a stock ticker to CIK
-    # find if a tag with CIK exists
-    soup = self.fetch_query(self.query)
-    try:
-      cik_tag = soup("input", attrs={"name": "CIK"})[0]
-    except IndexError:
-      return "\nError: invalid ticker, please check and try again."
-    cik = cik_tag['value']
-    return cik
-
-  def cik_to_company(self):
-  # convert a CIK to company name
-    soup = self.fetch_query(self.query)
-    # find tag with the class companyName
-    company_tag = soup("span", attrs={"class": "companyName"})[0]
-    company = company_tag.contents[0]
-    return company
-
   def query_13f(self):
   # narrow query paras to '13F-HR' type and return results
     query_13f = self.query + "&type=13F-HR&dateb=&owner=include&count=40"
@@ -62,17 +43,3 @@ class Edgar:
     doc_query = primary_doc["href"]
     doc_url = self.url + doc_query
     return doc_url
-
-  def parse_report(self, fetch_13f_url):
-  # parse the report
-    report_resp = requests.get(fetch_13f_url)
-    report = Soup(report_resp.text, "html.parser")
-    return report
-
-  def report(self):
-  # 
-    filing = self.fetch_13f_url()
-    if filing is None:
-      return ("\nError, cannot find 13F report for this CIK. Please try again.")
-    report = self.parse_report(filing)
-    return report
