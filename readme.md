@@ -8,7 +8,7 @@ You will need Python v.3.7.4 to run this parser. Python packages are available a
 * Beautiful Soup v4
 * Requests
 
-#@# Features
+### Features
 * Accepts CIK or ticker and finds the most current 13F-HR report
 * Writes the results to a `.tsv` file
 
